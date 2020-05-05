@@ -1,0 +1,10 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ *;version="${package-version}"
+
+Import-Package: \
+ *
+
+Fragment-Host: \
+ org.neo4j.ogm-core
