@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.neo4j</groupId>
+    <artifactId>neo4j-ogm-osgi</artifactId>
+    <version>4.0.0-SNAPSHOT</version>
+
+    <name>Neo4j OGM OSGi</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <releases.repo.id>placeholder-releases.repo.id</releases.repo.id>
+        <releases.repo.url>placeholder-releases.repo.url</releases.repo.url>
+        <snapshots.repo.id>placeholder-snapshots.repo.id</snapshots.repo.id>
+        <snapshots.repo.url>placeholder-snapshots.repo.url</snapshots.repo.url>
+
+        <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
+        <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>${releases.repo.id}</id>
+            <url>${releases.repo.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshots.repo.id}</id>
+            <url>${snapshots.repo.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                    <configuration>
+                        <supportedProjectTypes>
+                            <supportedProjectTypes>jar</supportedProjectTypes>
+                        </supportedProjectTypes>
+                        <!--
+                        <instructions>
+                            <_include>../../${project.artifactId}-osgi.bnd</_include>
+                        </instructions>
+                        -->
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>bundle-manifest</id>
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>manifest</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>bundle-install</id>
+                            <phase>install</phase>
+                            <goals>
+                                <goal>install</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>neo4j-ogm</module>
+    </modules>
+
+</project>

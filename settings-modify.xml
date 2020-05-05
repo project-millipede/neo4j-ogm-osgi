@@ -1,0 +1,24 @@
+<settings xmlns="http://maven.apache.org/settings/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <profiles>
+        <profile>
+            <id>gitlab-build</id>
+
+            <!-- Properties reference the POM utils maven plugin. The plugin is a custom hosted at Gitlab -->
+
+            <properties>
+                <gitlab.project.id>18580785</gitlab.project.id>
+                <gitlab.repo.id>gitlab-maven</gitlab.repo.id>
+                <gitlab.repo.url>https://gitlab.com/api/v4/projects/${gitlab.project.id}/packages/maven
+                </gitlab.repo.url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>gitlab-build</activeProfile>
+    </activeProfiles>
+
+</settings>

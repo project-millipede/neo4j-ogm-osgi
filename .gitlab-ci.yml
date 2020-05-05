@@ -1,0 +1,41 @@
+image: maven:3.6.3-jdk-11
+
+# DinD service is required for Testcontainers
+services:
+  - docker:dind
+
+variables:
+  GIT_SUBMODULE_STRATEGY: normal
+  MAVEN_MODIFY_CLI_OPTS: "-s settings-modify.xml"
+  MAVEN_CLI_OPTS: "-s settings.xml"
+
+  # Instruct Testcontainers to use the daemon of DinD.
+  DOCKER_HOST: "tcp://docker:2375"
+  # Improve performance with overlayfs.
+  DOCKER_DRIVER: overlay2
+
+cache:
+  paths:
+    - ~/.m2/repository
+
+stages:
+  - build
+  - deploy
+
+build_feature:
+  stage: build
+  script:
+    - mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
+    - mvn ${MAVEN_CLI_OPTS} clean install
+  except:
+    refs:
+      - master
+
+deploy_artifacts:
+  stage: deploy
+  script:
+    - mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
+    - mvn ${MAVEN_CLI_OPTS} clean install deploy
+  only:
+    refs:
+      - master
