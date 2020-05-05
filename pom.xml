@@ -19,6 +19,8 @@
 
         <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
         <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
+
+        <rootDir>${session.executionRootDirectory}</rootDir>
     </properties>
 
     <distributionManagement>
@@ -53,11 +55,9 @@
                         <supportedProjectTypes>
                             <supportedProjectTypes>jar</supportedProjectTypes>
                         </supportedProjectTypes>
-                        <!--
                         <instructions>
-                            <_include>../../${project.artifactId}-osgi.bnd</_include>
+                            <_include>${rootDir}/${project.artifactId}-osgi.bnd</_include>
                         </instructions>
-                        -->
                     </configuration>
                     <executions>
                         <execution>

@@ -1,0 +1,7 @@
+package-version=${version;===;${Bundle-Version}}
+
+Export-Package: \
+ *;version="${package-version}"
+
+Import-Package: \
+ *
