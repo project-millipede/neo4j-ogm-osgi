@@ -56,7 +56,7 @@
                             <supportedProjectTypes>jar</supportedProjectTypes>
                         </supportedProjectTypes>
                         <instructions>
-                            <_include>${rootDir}/${project.artifactId}-osgi.bnd</_include>
+                            <_include>${rootDir}/bnd/${project.artifactId}.bnd</_include>
                         </instructions>
                     </configuration>
                     <executions>
