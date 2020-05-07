@@ -51,6 +51,7 @@
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>${maven-bundle-plugin.version}</version>
+                    <extensions>true</extensions>
                     <configuration>
                         <supportedProjectTypes>
                             <supportedProjectTypes>jar</supportedProjectTypes>
@@ -89,6 +90,7 @@
 
     <modules>
         <module>neo4j-ogm</module>
+        <module>neo4j-ogm-feature</module>
     </modules>
 
 </project>

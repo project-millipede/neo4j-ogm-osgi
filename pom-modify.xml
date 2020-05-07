@@ -18,6 +18,8 @@
         <pomutils-maven-plugin.version>1.1.0</pomutils-maven-plugin.version>
         <pomFile-to-alter>neo4j-ogm/pom.xml</pomFile-to-alter>
         <relativePath-parent>../</relativePath-parent>
+
+        <neo4j-java-driver-modifier.version>4.0-SNAPSHOT</neo4j-java-driver-modifier.version>
     </properties>
 
     <pluginRepositories>
@@ -47,6 +49,19 @@
                                 <version>${project.version}</version>
                                 <relativePath>${relativePath-parent}</relativePath>
                                 <pomFile>${pomFile-to-alter}</pomFile>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>add-properties-from-params</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>add-properties</goal>
+                            </goals>
+                            <configuration>
+                                <pomFile>${pomFile-to-alter}</pomFile>
+                                <properties>
+                                    <property>neo4j-java-driver.version=${neo4j-java-driver-modifier.version}</property>
+                                </properties>
                             </configuration>
                         </execution>
                     </executions>

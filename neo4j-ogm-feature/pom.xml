@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--
+         Licensed to the Apache Software Foundation (ASF) under one or more
+         contributor license agreements.  See the NOTICE file distributed with
+         this work for additional information regarding copyright ownership.
+         The ASF licenses this file to You under the Apache License, Version 2.0
+         (the "License"); you may not use this file except in compliance with
+         the License.  You may obtain a copy of the License at
+
+             http://www.apache.org/licenses/LICENSE-2.0
+
+         Unless required by applicable law or agreed to in writing, software
+         distributed under the License is distributed on an "AS IS" BASIS,
+         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+         See the License for the specific language governing permissions and
+         limitations under the License.
+     -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-osgi</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <artifactId>neo4j-ogm-feature</artifactId>
+
+    <packaging>pom</packaging>
+
+    <name>Neo4j OGM Feature</name>
+
+    <properties>
+        <karaf-maven-plugin.version>4.3.0.RC1</karaf-maven-plugin.version>
+
+        <!-- Override version for maven-install-plugin due to a bug in the latest version (3.0.0-M1) preventing the
+        installation of artifacts of package type feature. See: https://issues.apache.org/jira/browse/MINSTALL-151 -->
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${karaf-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <startLevel>80</startLevel>
+                        <aggregateFeatures>true</aggregateFeatures>
+                        <enableGeneration>true</enableGeneration>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>compile</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>features-generate-descriptor</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>neo4j-ogm-api-feature</module>
+        <module>neo4j-ogm-core-feature</module>
+        <module>neo4j-ogm-bolt-driver-feature</module>
+    </modules>
+
+</project>
