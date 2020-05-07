@@ -27,6 +27,19 @@
                 <snapshots.repo.url>https://gitlab.com/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven
                 </snapshots.repo.url>
             </properties>
+            <repositories>
+                <!-- Neo4j Java Driver - custom build dependency hosted at Gitlab maven registry -->
+                <repository>
+                    <id>gitlab-maven</id>
+                    <url>https://gitlab.com/api/v4/projects/18622687/packages/maven</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
         </profile>
     </profiles>
 
