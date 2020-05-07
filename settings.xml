@@ -8,8 +8,8 @@
             <configuration>
                 <httpHeaders>
                     <property>
-                        <name>Job-Token</name>
-                        <value>${env.CI_JOB_TOKEN}</value>
+                        <name>Private-Token</name>
+                        <value>${env.GITLAB_PRIVATE_TOKEN}</value>
                     </property>
                 </httpHeaders>
             </configuration>
