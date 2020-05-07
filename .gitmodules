@@ -1,3 +1,4 @@
 [submodule "neo4j-ogm"]
 	path = neo4j-ogm
 	url = https://github.com/project-millipede/neo4j-ogm.git
+	branch = master
