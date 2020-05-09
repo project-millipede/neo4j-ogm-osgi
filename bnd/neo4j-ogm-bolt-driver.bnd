@@ -5,6 +5,3 @@ Export-Package: \
 
 Import-Package: \
  *
-
-Fragment-Host: \
- org.neo4j.ogm-core
