@@ -91,6 +91,8 @@
     <modules>
         <module>neo4j-ogm-api-feature</module>
         <module>neo4j-ogm-core-feature</module>
+        <module>neo4j-ogm-embedded-driver-feature</module>
+        <module>neo4j-ogm-http-driver-feature</module>
         <module>neo4j-ogm-bolt-driver-feature</module>
     </modules>
 
