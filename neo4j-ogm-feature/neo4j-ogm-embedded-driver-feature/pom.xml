@@ -28,39 +28,23 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>neo4j-ogm-bolt-driver-feature</artifactId>
+    <artifactId>neo4j-ogm-embedded-driver-feature</artifactId>
 
     <packaging>feature</packaging>
 
-    <name>Neo4j OGM - Bolt Driver Feature</name>
-
-    <repositories>
-        <repository>
-            <id>gitlab-maven</id>
-            <url>https://gitlab.com/api/v4/projects/18622687/packages/maven</url>
-        </repository>
-    </repositories>
+    <name>Neo4j OGM - Embedded Driver Feature</name>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.neo4j</groupId>
-                <artifactId>neo4j-ogm-bolt-driver</artifactId>
+                <artifactId>neo4j-ogm-embedded-driver</artifactId>
                 <version>${neo4j-ogm.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.neo4j.driver</groupId>
-            <artifactId>neo4j-java-driver-feature</artifactId>
-            <version>${neo4j-java-driver-feature.version}</version>
-            <type>xml</type>
-            <classifier>features</classifier>
-        </dependency>
-
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core-feature</artifactId>
@@ -68,14 +52,17 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-
         <dependency>
             <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-bolt-driver</artifactId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>org.neo4j.driver</groupId>
-                    <artifactId>neo4j-java-driver</artifactId>
+                    <groupId>org.neo4j</groupId>
+                    <artifactId>neo4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.neo4j.app</groupId>
+                    <artifactId>neo4j-server</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>org.neo4j</groupId>
@@ -87,7 +74,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
 </project>
