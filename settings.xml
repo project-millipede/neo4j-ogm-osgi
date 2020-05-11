@@ -1,4 +1,4 @@
-<settings xmlns="http://maven.apache.org/settings/1.0.0"
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
@@ -43,7 +43,7 @@
                      repository {env.CI_PROJECT_ID} where the current artifacts get hosted -->
                 <repository>
                     <id>gitlab-maven</id>
-                    <url>https://gitlab.com/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+                    <url>https://gitlab.com/api/v4/projects/18591736/packages/maven</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>

@@ -12,22 +12,13 @@
     <packaging>pom</packaging>
 
     <properties>
-        <gitlab.repo.id>placeholder-gitlab.repo.id</gitlab.repo.id>
-        <gitlab.repo.url>placeholder-gitlab.repo.url</gitlab.repo.url>
-
         <pomutils-maven-plugin.version>1.1.0</pomutils-maven-plugin.version>
+
         <pomFile-to-alter>neo4j-ogm/pom.xml</pomFile-to-alter>
         <relativePath-parent>../</relativePath-parent>
 
         <neo4j-java-driver-modifier.version>4.0-SNAPSHOT</neo4j-java-driver-modifier.version>
     </properties>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>${gitlab.repo.id}</id>
-            <url>${gitlab.repo.url}</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <build>
         <pluginManagement>

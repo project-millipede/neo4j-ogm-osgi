@@ -47,7 +47,7 @@ The pom file of the original project will result
 > Requirement: Docker installation on the build system
 
 ```
-mvn clean install
+mvn -s settings.xml clean install
 ```
 
 #### Minified build - excluding tests, and docs
@@ -55,7 +55,7 @@ mvn clean install
 > Without a docker installation
 
 ```
-mvn clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
+mvn -s settings.xml clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
 ```
 
 ## Using artifacts
