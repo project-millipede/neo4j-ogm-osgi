@@ -2,6 +2,17 @@
 
 > Link OSGi-relevant aspects without changing the source code of the original project.
 
+## Requirements to make Neo4j-OGM OSGi compatible
+
+| Modules            | General purpose                                  | OSGi integration                                           |
+|:------------------:|-------------------------------------------------:|-----------------------------------------------------------:|
+| API                |                                                  |                                                            |
+| Core               | Domain object scanning - see class DomainInfo    | Important: Ensure the appropriate classloader gets used    |
+| Embedded-Driver    |                                                  | Fragment Host: org.neo4j.ogm-core                          |
+| Bolt-Driver        |                                                  | Fragment Host: org.neo4j.ogm-core                          |
+| Http-Driver        |                                                  | Fragment Host: org.neo4j.ogm-core                          |
+| Feature            | Generate deployment description (DD)             | Launch the project within the OSGi-ecosystem Apache Karaf  |
+
 ## Git Submodule (Neo4j-OGM)
 
 Integration of original source code into a higher-level build system.
