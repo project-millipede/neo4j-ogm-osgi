@@ -4,14 +4,14 @@
 
 ## Requirements to make Neo4j-OGM OSGi compatible
 
-| Modules            | General purpose                                  | OSGi integration                                           |
-|:------------------:|-------------------------------------------------:|-----------------------------------------------------------:|
-| API                |                                                  |                                                            |
-| Core               | Domain object scanning - see class DomainInfo    | Important: Ensure the appropriate classloader gets used    |
-| Embedded-Driver    |                                                  | Fragment Host: org.neo4j.ogm-core                          |
-| Bolt-Driver        |                                                  | Fragment Host: org.neo4j.ogm-core                          |
-| Http-Driver        |                                                  | Fragment Host: org.neo4j.ogm-core                          |
-| Feature            | Generate deployment description (DD)             | Launch the project within the OSGi-ecosystem Apache Karaf  |
+|     Modules     |                               General purpose |                                          OSGi integration |
+| :-------------: | --------------------------------------------: | --------------------------------------------------------: |
+|       API       |                                               |                                                           |
+|      Core       | Domain object scanning - see class DomainInfo |   Important: Ensure the appropriate classloader gets used |
+| Embedded-Driver |                                               |                         Fragment Host: org.neo4j.ogm-core |
+|   Bolt-Driver   |                                               |                         Fragment Host: org.neo4j.ogm-core |
+|   Http-Driver   |                                               |                         Fragment Host: org.neo4j.ogm-core |
+|     Feature     |          Generate deployment description (DD) | Launch the project within the OSGi-ecosystem Apache Karaf |
 
 ## Git Submodule (Neo4j-OGM)
 
@@ -19,8 +19,8 @@ Integration of original source code into a higher-level build system.
 
 ## Extension of the build system by a set of additional instructions
 
-The build of the original project integrated through git submodule has to be extended. 
-The primary aspect of extending the build system is to provide additional instructions, 
+The build of the original project integrated through git submodule has to be extended.
+The primary aspect of extending the build system is to provide additional instructions,
 so the inner build instructions acknowledge outside adjustments.
 
 ### Pre-Build
@@ -74,21 +74,22 @@ mvn -s settings.xml clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=tr
 > The project has a build and deployment pipeline; Gitlab gets used for this purpose.
 
 ### Learn more about the CI/CD integrated
-To learn more about the build and deployment pipeline, look at the .gitlab-ci.yml file in the 
+
+To learn more about the build and deployment pipeline, look at the .gitlab-ci.yml file in the
 base directory of the project structure.
 
-> Artifact will be deployed to Gitlab`s maven repository if changes happen in the default branch (master). 
+> Artifact will be deployed to Gitlab`s maven repository if changes happen in the default branch (master).
 
-Other branches, such as features or pull requests, only pass through the build phase, including the execution of tests; 
+Other branches, such as features or pull requests, only pass through the build phase, including the execution of tests;
 there is no deployment of artifacts into the repository.
 
 ### Repository
 
 Using the project`s maven repository in your project
 
-> Note: Neo4j Java Driver repository mentioned is optional. 
+> Note: Neo4j Java Driver repository mentioned is optional.
 > Depending on what neo4j-java-driver you are using in your project either integrate this repository (custom build)
-> or use maven`s default (maven-central). The artifacts hosted in the repository mentioned here use the latest 
+> or use maven`s default (maven-central). The artifacts hosted in the repository mentioned here use the latest
 > java driver version from the respective master branch.
 
 ```xml
