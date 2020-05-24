@@ -28,36 +28,18 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>neo4j-ogm-core-feature</artifactId>
+    <artifactId>neo4j-ogm-osgi-feature</artifactId>
 
     <packaging>feature</packaging>
 
-    <name>Neo4j OGM - Core Feature</name>
+    <name>Neo4j OGM - API Feature</name>
 
     <dependencies>
-
         <dependency>
             <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-api-feature</artifactId>
+            <artifactId>neo4j-ogm-osgi</artifactId>
             <version>${neo4j-ogm.version}</version>
-            <type>xml</type>
-            <classifier>features</classifier>
-        </dependency>
-
-        <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-core</artifactId>
-            <version>${neo4j-ogm.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
+
 </project>

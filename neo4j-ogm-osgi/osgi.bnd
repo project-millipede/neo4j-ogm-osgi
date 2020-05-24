@@ -1,0 +1,3 @@
+Provide-Capability: \
+ osgi.service; \
+ objectClass:List<String>="org.osgi.service.component.ComponentFactory"

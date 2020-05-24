@@ -63,7 +63,7 @@
 
         <dependency>
             <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-core-feature</artifactId>
+            <artifactId>neo4j-ogm-api-feature</artifactId>
             <version>${neo4j-ogm.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
@@ -82,8 +82,8 @@
                     <artifactId>neo4j-ogm-api</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-core</artifactId>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
