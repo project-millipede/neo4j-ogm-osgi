@@ -39,7 +39,7 @@ The pom file of the original project will result
 ...
   <parent>
     <groupId>org.neo4j</groupId>
-    <artifactId>neo4j-ogm-osgi</artifactId>
+    <artifactId>neo4j-ogm-osgi-parent</artifactId>
     <version>4.0.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>

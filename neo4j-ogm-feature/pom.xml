@@ -21,7 +21,7 @@
 
     <parent>
         <groupId>org.neo4j</groupId>
-        <artifactId>neo4j-ogm-osgi</artifactId>
+        <artifactId>neo4j-ogm-osgi-parent</artifactId>
         <version>4.0.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
@@ -64,8 +64,8 @@
                     <version>${karaf-maven-plugin.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <startLevel>80</startLevel>
-                        <aggregateFeatures>true</aggregateFeatures>
+                        <startLevel>70</startLevel>
+                        <aggregateFeatures>false</aggregateFeatures>
                         <enableGeneration>true</enableGeneration>
                     </configuration>
                     <executions>
@@ -94,6 +94,7 @@
         <module>neo4j-ogm-embedded-driver-feature</module>
         <module>neo4j-ogm-http-driver-feature</module>
         <module>neo4j-ogm-bolt-driver-feature</module>
+        <module>neo4j-ogm-osgi-feature</module>
     </modules>
 
 </project>
