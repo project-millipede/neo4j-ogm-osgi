@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.neo4j</groupId>
     <artifactId>neo4j-ogm-osgi-parent</artifactId>
     <version>4.0.0-SNAPSHOT</version>
 
-    <name>Neo4j OGM OSGi - Modify</name>
+    <name>Neo4j OGM :: OSGi :: Modify</name>
 
     <packaging>pom</packaging>
 
@@ -15,9 +17,16 @@
         <pomutils-maven-plugin.version>1.1.0</pomutils-maven-plugin.version>
 
         <pomFile-to-alter>neo4j-ogm/pom.xml</pomFile-to-alter>
-        <relativePath-parent>../</relativePath-parent>
 
+        <java-modifier.version>11</java-modifier.version>
         <neo4j-java-driver-modifier.version>4.0-SNAPSHOT</neo4j-java-driver-modifier.version>
+
+        <!-- Override version for maven-install-plugin due to a bug in the latest version (3.0.0-M1) preventing the
+        installation of artifacts of package type feature. See: https://issues.apache.org/jira/browse/MINSTALL-151 -->
+        <maven-install-plugin-modifier.version>2.5.2</maven-install-plugin-modifier.version>
+
+        <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
+        <maven-deploy-plugin-modifier.version>2.8.2</maven-deploy-plugin-modifier.version>
     </properties>
 
     <build>
@@ -38,7 +47,6 @@
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
                                 <version>${project.version}</version>
-                                <relativePath>${relativePath-parent}</relativePath>
                                 <pomFile>${pomFile-to-alter}</pomFile>
                             </configuration>
                         </execution>
@@ -52,6 +60,11 @@
                                 <pomFile>${pomFile-to-alter}</pomFile>
                                 <properties>
                                     <property>neo4j-java-driver.version=${neo4j-java-driver-modifier.version}</property>
+                                    <property>maven-install-plugin.version=${maven-install-plugin-modifier.version}
+                                    </property>
+                                    <property>maven-deploy-plugin.version=${maven-deploy-plugin-modifier.version}
+                                    </property>
+                                    <property>java.version=${java-modifier.version}</property>
                                 </properties>
                             </configuration>
                         </execution>

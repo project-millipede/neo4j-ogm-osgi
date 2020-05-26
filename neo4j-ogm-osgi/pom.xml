@@ -2,17 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-ogm-osgi-parent</artifactId>
         <version>4.0.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>neo4j-ogm-osgi</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
 
     <packaging>bundle</packaging>
 
@@ -22,9 +21,6 @@
         <osgi.core.version>7.0.0</osgi.core.version>
         <osgi.cmpn.version>7.0.0</osgi.cmpn.version>
         <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
-
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencyManagement>

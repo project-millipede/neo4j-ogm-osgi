@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.neo4j</groupId>
     <artifactId>neo4j-ogm-osgi-parent</artifactId>
     <version>4.0.0-SNAPSHOT</version>
 
-    <name>Neo4j OGM OSGi Parent</name>
+    <name>Neo4j OGM :: OSGi :: Parent</name>
 
     <packaging>pom</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <releases.repo.id>placeholder-releases.repo.id</releases.repo.id>
         <releases.repo.url>placeholder-releases.repo.url</releases.repo.url>
         <snapshots.repo.id>placeholder-snapshots.repo.id</snapshots.repo.id>
         <snapshots.repo.url>placeholder-snapshots.repo.url</snapshots.repo.url>
 
-        <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+
         <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
 
         <!--suppress UnresolvedMavenProperty -->
@@ -38,16 +46,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
-                    <configuration>
-                        <archive>
-                            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                        </archive>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
@@ -81,7 +79,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
