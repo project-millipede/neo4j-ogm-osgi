@@ -47,14 +47,6 @@
                     <groupId>org.neo4j.app</groupId>
                     <artifactId>neo4j-server</artifactId>
                 </exclusion>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-core</artifactId>
-                </exclusion>
             </exclusions>
         </dependency>
     </dependencies>

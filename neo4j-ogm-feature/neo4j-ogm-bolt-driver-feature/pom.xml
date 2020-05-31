@@ -35,7 +35,6 @@
     </dependencyManagement>
 
     <dependencies>
-
         <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver-feature</artifactId>
@@ -43,7 +42,6 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-api-feature</artifactId>
@@ -51,26 +49,10 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-bolt-driver</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.neo4j.driver</groupId>
-                    <artifactId>neo4j-java-driver</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
     </dependencies>
 
 </project>

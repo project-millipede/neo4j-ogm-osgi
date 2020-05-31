@@ -48,7 +48,6 @@
                     <version>${karaf-maven-plugin.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <startLevel>70</startLevel>
                         <aggregateFeatures>false</aggregateFeatures>
                         <enableGeneration>true</enableGeneration>
                     </configuration>
