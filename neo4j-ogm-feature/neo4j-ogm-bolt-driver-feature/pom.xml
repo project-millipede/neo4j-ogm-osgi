@@ -15,7 +15,7 @@
 
     <packaging>feature</packaging>
 
-    <name>Neo4j OGM :: Bolt Driver :: Feature</name>
+    <name>Neo4j :: OGM :: Bolt :: Driver :: Feature</name>
 
     <repositories>
         <repository>

@@ -15,7 +15,7 @@
 
     <packaging>feature</packaging>
 
-    <name>Neo4j OGM :: API :: Feature</name>
+    <name>Neo4j :: OGM :: API :: Feature</name>
 
     <dependencies>
         <dependency>

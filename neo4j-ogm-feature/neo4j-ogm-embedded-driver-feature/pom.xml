@@ -15,7 +15,7 @@
 
     <packaging>feature</packaging>
 
-    <name>Neo4j OGM :: Embedded Driver :: Feature</name>
+    <name>Neo4j :: OGM :: Embedded :: Driver :: Feature</name>
 
     <dependencyManagement>
         <dependencies>
