@@ -27,7 +27,7 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 
         <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
-        <neo4j-java-driver-feature.version>4.0-SNAPSHOT</neo4j-java-driver-feature.version>
+        <neo4j-java-driver-feature.version>4.1-SNAPSHOT</neo4j-java-driver-feature.version>
 
     </properties>
 
