@@ -23,7 +23,7 @@
         because of kotlin configuration (jvmTarget).
         -->
         <!--<java-modifier.version>11</java-modifier.version>-->
-        <neo4j-java-driver-modifier.version>4.0-SNAPSHOT</neo4j-java-driver-modifier.version>
+        <neo4j-java-driver-modifier.version>4.1-SNAPSHOT</neo4j-java-driver-modifier.version>
 
         <!-- Override version for maven-install-plugin due to a bug in the latest version (3.0.0-M1) preventing the
         installation of artifacts of package type feature. See: https://issues.apache.org/jira/browse/MINSTALL-151 -->

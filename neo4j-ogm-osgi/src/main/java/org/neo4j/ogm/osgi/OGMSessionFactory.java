@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Designate(ocd = OGMSessionConfig.class)
 @Component(
     factory = OGMSessionFactory.FACTORY_NAME,
-    configurationPid = OGMConstants.CONFIGURATION_PID)
+    configurationPid = OGMConstants.OGM_SESSION_FACTORY_CONFIG)
 public class OGMSessionFactory implements OGMSessionFactoryService {
 
   public static final String FACTORY_NAME = "ogm.session.factory";

@@ -12,14 +12,12 @@ import org.osgi.service.metatype.annotations.Designate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
 @Designate(ocd = OGMSessionConfig.class)
 @Component(
     service = OGMSessionComponentService.class,
-    configurationPid = OGMConstants.CONFIGURATION_PID,
+    configurationPid = OGMConstants.OGM_SESSION_COMPONENT_CONFIG,
     configurationPolicy = ConfigurationPolicy.REQUIRE,
     immediate = true)
-*/
 public class OGMSessionComponent implements OGMSessionComponentService {
 
   private OGMSessionConfig config;
