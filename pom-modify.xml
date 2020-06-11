@@ -6,16 +6,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.neo4j</groupId>
-    <artifactId>neo4j-ogm-osgi-parent</artifactId>
+    <artifactId>neo4j-ogm-osgi-modify</artifactId>
     <version>4.0.0-SNAPSHOT</version>
 
-    <name>Neo4j OGM :: OSGi :: Modify</name>
+    <name>Neo4j :: OGM :: OSGi :: Modify</name>
 
     <packaging>pom</packaging>
 
     <properties>
-        <pomutils-maven-plugin.version>1.1.0</pomutils-maven-plugin.version>
-
+        <artifactId-modifier>neo4j-ogm-osgi-parent</artifactId-modifier>
         <pomFile-to-alter>neo4j-ogm/pom.xml</pomFile-to-alter>
 
         <!--
@@ -31,6 +30,8 @@
 
         <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
         <maven-deploy-plugin-modifier.version>2.8.2</maven-deploy-plugin-modifier.version>
+
+        <pomutils-maven-plugin.version>1.1.0</pomutils-maven-plugin.version>
     </properties>
 
     <build>
@@ -49,7 +50,7 @@
                             </goals>
                             <configuration>
                                 <groupId>${project.groupId}</groupId>
-                                <artifactId>${project.artifactId}</artifactId>
+                                <artifactId>${artifactId-modifier}</artifactId>
                                 <version>${project.version}</version>
                                 <pomFile>${pomFile-to-alter}</pomFile>
                             </configuration>
