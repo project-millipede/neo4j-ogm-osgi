@@ -5,4 +5,4 @@ Import-Package: \
  *
 
 Fragment-Host: \
- org.neo4j.ogm-core
+ neo4j-ogm-core
