@@ -4,5 +4,4 @@ Bundle-License:
 Bundle-SCM:
 Bundle-Vendor:
 
--jpms-module-info:
 -include: ${project.rootdir}/bnd/${project.artifactId}.bnd
