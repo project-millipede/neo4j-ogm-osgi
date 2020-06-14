@@ -21,17 +21,16 @@
         <snapshots.repo.id>placeholder-snapshots.repo.id</snapshots.repo.id>
         <snapshots.repo.url>placeholder-snapshots.repo.url</snapshots.repo.url>
 
-
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
+        <bnd.version>5.1.0</bnd.version>
+        <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
+
         <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
         <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
-
-        <!--suppress UnresolvedMavenProperty -->
-        <rootDir>${session.executionRootDirectory}</rootDir>
     </properties>
 
     <distributionManagement>
@@ -59,32 +58,33 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>${maven-bundle-plugin.version}</version>
-                    <extensions>true</extensions>
+                    <groupId>org.commonjava.maven.plugins</groupId>
+                    <artifactId>directory-maven-plugin</artifactId>
+                    <version>${directory-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>set-root-dir-for-common-lifecycle</id>
+                            <goals>
+                                <goal>highest-basedir</goal>
+                            </goals>
+                            <phase>process-classes</phase>
+                            <configuration>
+                                <property>project.rootdir</property>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>${bnd.version}</version>
                     <configuration>
-                        <supportedProjectTypes>
-                            <supportedProjectType>jar</supportedProjectType>
-                            <supportedProjectType>bundle</supportedProjectType>
-                        </supportedProjectTypes>
-                        <instructions>
-                            <_include>${rootDir}/bnd/${project.artifactId}.bnd</_include>
-                        </instructions>
+                        <bndfile>delegate.bnd</bndfile>
                     </configuration>
                     <executions>
                         <execution>
-                            <id>bundle-manifest</id>
-                            <phase>process-classes</phase>
                             <goals>
-                                <goal>manifest</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>bundle-install</id>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>install</goal>
+                                <goal>bnd-process</goal>
                             </goals>
                         </execution>
                     </executions>
@@ -93,8 +93,12 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
+                <groupId>org.commonjava.maven.plugins</groupId>
+                <artifactId>directory-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
