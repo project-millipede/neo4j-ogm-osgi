@@ -1,10 +1,8 @@
-package-version=${version;===;${Bundle-Version}}
-
 Export-Package: \
- *;version="${package-version}"
+ org.neo4j.ogm.drivers.bolt.*
 
 Import-Package: \
  *
 
 Fragment-Host: \
- org.neo4j.ogm-core
+ neo4j-ogm-core

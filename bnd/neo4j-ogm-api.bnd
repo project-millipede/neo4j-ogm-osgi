@@ -1,7 +1,5 @@
-package-version=${version;===;${Bundle-Version}}
-
 Export-Package: \
- *;version="${package-version}"
+ org.neo4j.ogm.*
 
 Import-Package: \
  *

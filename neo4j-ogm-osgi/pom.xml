@@ -13,8 +13,6 @@
 
     <artifactId>neo4j-ogm-osgi</artifactId>
 
-    <packaging>bundle</packaging>
-
     <name>Neo4j :: OGM :: OSGi</name>
 
     <properties>
@@ -60,19 +58,5 @@
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <_include>osgi.bnd</_include>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
