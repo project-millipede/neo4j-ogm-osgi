@@ -28,9 +28,8 @@
 
         <bnd.version>5.1.0</bnd.version>
         <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
-
         <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
-        <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
     </properties>
 
     <distributionManagement>
@@ -55,6 +54,14 @@
                         <archive>
                             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                         </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <forkCount>0</forkCount>
                     </configuration>
                 </plugin>
                 <plugin>
