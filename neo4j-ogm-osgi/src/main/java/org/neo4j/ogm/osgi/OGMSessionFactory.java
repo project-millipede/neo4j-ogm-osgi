@@ -5,6 +5,7 @@ import org.neo4j.ogm.osgi.utils.classloader.ClassLoaderSwitcher;
 import org.neo4j.ogm.session.SessionFactory;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.Designate;
 
@@ -14,7 +15,8 @@ import java.util.Arrays;
 @Designate(ocd = OGMSessionConfig.class)
 @Component(
     factory = OGMSessionFactory.FACTORY_NAME,
-    configurationPid = OGMConstants.OGM_SESSION_FACTORY_CONFIG)
+    configurationPid = OGMConstants.OGM_SESSION_FACTORY_CONFIG,
+    configurationPolicy = ConfigurationPolicy.REQUIRE)
 public class OGMSessionFactory implements OGMSessionFactoryService {
 
   public static final String FACTORY_NAME = "ogm.session.factory";
