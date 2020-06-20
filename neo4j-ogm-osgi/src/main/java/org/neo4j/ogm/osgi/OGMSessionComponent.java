@@ -16,8 +16,8 @@ import java.util.Arrays;
 @Component(
     service = OGMSessionComponentService.class,
     configurationPid = OGMConstants.OGM_SESSION_COMPONENT_CONFIG,
-    configurationPolicy = ConfigurationPolicy.REQUIRE,
-    immediate = true)
+    configurationPolicy = ConfigurationPolicy.REQUIRE
+)
 public class OGMSessionComponent implements OGMSessionComponentService {
 
   private OGMSessionConfig config;

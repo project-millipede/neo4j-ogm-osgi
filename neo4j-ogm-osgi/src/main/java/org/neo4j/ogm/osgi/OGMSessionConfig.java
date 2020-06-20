@@ -10,14 +10,15 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public @interface OGMSessionConfig {
 
   @AttributeDefinition(name = "Domain Packages", type = AttributeType.STRING)
-  String[] domain_packages() default {"org.neo4j.ogm.demo.osgi.model"};
+  String[] domain_packages();
 
-  @AttributeDefinition(name = "username", type = AttributeType.STRING)
-  String username() default "neo4j";
+  @AttributeDefinition(name = "Username", type = AttributeType.STRING)
+  String username();
 
-  @AttributeDefinition(name = "password", type = AttributeType.PASSWORD)
-  String password() default "neo4jPWD";
+  @AttributeDefinition(name = "Password", type = AttributeType.PASSWORD)
+  String password();
 
-  @AttributeDefinition(name = "uri", type = AttributeType.STRING)
-  String uri() default "bolt://localhost:7687";
+  @AttributeDefinition(name = "URI", type = AttributeType.STRING)
+  String uri();
+
 }
