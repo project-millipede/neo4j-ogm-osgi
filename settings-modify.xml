@@ -5,7 +5,7 @@
     <servers>
         <server>
             <id>github-maven</id>
-            <!--
+
             <configuration>
                 <httpHeaders>
                     <property>
@@ -14,12 +14,13 @@
                     </property>
                 </httpHeaders>
             </configuration>
-            -->
             <!--
             <username>${env.GITHUB_USERNAME}</username>
             -->
+            <!--
             <username>gurkerl83</username>
             <password>${env.GITHUB_TOKEN}</password>
+            -->
         </server>
     </servers>
 
