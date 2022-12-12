@@ -30,7 +30,7 @@ jobs:
           submodules: normal
 
   build_feature:
-    needs: [setup]
+    needs: [setup, submodule-checkout]
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -38,7 +38,7 @@ jobs:
           mvn ${MAVEN_CLI_OPTS} clean install
 
   deploy_artifacts:
-    needs: [setup]
+    needs: [setup, submodule-checkout]
     runs-on: ubuntu-latest
     steps:
       - run: |
