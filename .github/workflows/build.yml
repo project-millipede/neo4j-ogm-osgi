@@ -18,10 +18,10 @@ jobs:
       - name: Bind
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.ACTOR }}"
         run: |
-          echo "GITHUB_ACTOR: ${{github.ACTOR}}"
           echo "GITHUB_TOKEN - shielded: ${{secrets.GITHUB_TOKEN}}"
-          echo "GITHUB_ACTOR2: ${{GITHUB_ACTOR}}"
+          echo "ENV_GITHUB_ACTOR: $GITHUB_ACTOR"
       - name: Debug
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
