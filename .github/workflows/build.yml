@@ -12,6 +12,6 @@ jobs:
           GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Actor - shielded - ${{secrets.GITHUB_ACTOR }}\n"
-          echo "Actor - not shielded ${{secrets.GITHUB_ACTOR }} | sed 's/./& /g'\n"
-          echo "Token - shielded - ${{secrets.GITHUB_TOKEN }}\n"
+          echo "GITHUB_CONTEXT: ${GITHUB_CONTEXT}"
+          echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
+          echo "GITHUB_TOKEN - shielded: ${{secrets.GITHUB_TOKEN }}"
