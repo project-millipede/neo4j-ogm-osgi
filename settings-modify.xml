@@ -28,19 +28,28 @@
     <profiles>
         <profile>
             <id>github-build</id>
-
-            <!-- TODO: pluginRepositories -->
-            <!--
             <pluginRepositories>
+                <!-- POM Utils - custom build dependency, hosted at GitHub maven registry -->
+                <pluginRepository>
+                    <id>github-maven</id>
+                    <url>https://maven.pkg.github.com/project-millipede</url>
+                    <!--
+                    <url>https://maven.pkg.github.com/project-millipede/pomutils-maven-plugin-distribution</url>
+                    -->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
             </pluginRepositories>
-            -->
-
-        </profile>
-    </profiles>
+    </profile>
+</profiles>
 
 
-    <activeProfiles>
-        <activeProfile>github-build</activeProfile>
-    </activeProfiles>
+<activeProfiles>
+    <activeProfile>github-build</activeProfile>
+</activeProfiles>
 
 </settings>

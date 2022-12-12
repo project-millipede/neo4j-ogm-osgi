@@ -2,67 +2,28 @@ name: CI-CD
 
 on: push
 
+#env:
+#  MAVEN_MODIFY_CLI_OPTS: "-s settings-modify.xml"
+#  MAVEN_CLI_OPTS: "-s settings.xml"
+
 env:
-  MAVEN_MODIFY_CLI_OPTS: "-s settings-modify.xml"
-  MAVEN_CLI_OPTS: "-s settings.xml"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_REPOSITORY: ${{ github.REPOSITORY }}
+  GITHUB_REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
+  MAVEN_MODIFY_SETTINGS: ${{ github.WORKSPACE }}/settings-modify.xml
+  MAVEN_SETTINGS: ${{ github.WORKSPACE }}/settings.xml
+
 
 jobs:
-  setup:
-    name: Setup environment
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Create environment variables from github context and secrets
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.ACTOR }}
-          GITHUB_REPOSITORY: ${{ github.REPOSITORY }}
-        run: |
-          echo "GITHUB_TOKEN - shielded: ${{secrets.GITHUB_TOKEN}}"
-          echo "ENV_GITHUB_ACTOR: $GITHUB_ACTOR"
-          echo "ENV_GITHUB_ACTOR: $GITHUB_REPOSITORY"
-
-  submodule-checkout:
-    needs: [setup]
-
-    runs-on: ubuntu-latest
-
     container: maven:3.6.3-jdk-11
-
-    env:
-      JAVA_VERSION: '11'
-
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
-          submodules: normal
-
-      - name: Set up JDK ${{env.JAVA_VERSION}}
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{env.JAVA_VERSION}}
-          distribution: 'temurin'
-          cache: maven
-
-      - name: Build feature
+          submodules: recursive
+      - name: Modify and build git submodule
         run: |
-          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
-          mvn ${MAVEN_CLI_OPTS} clean install
-
-
-#  build_feature:
-#    needs: [setup, submodule-checkout]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Build feature
-#        run: |
-#          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
-#          mvn ${MAVEN_CLI_OPTS} clean install
-
-#  deploy_artifacts:
-#    needs: [setup, submodule-checkout]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - run: |
-#          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
-#          mvn ${MAVEN_CLI_OPTS} clean install deploy
+          mvn -s ${MAVEN_MODIFY_SETTINGS} clean install -f pom-modify.xml
+        #  mvn -s ${MAVEN_SETTINGS} clean install
