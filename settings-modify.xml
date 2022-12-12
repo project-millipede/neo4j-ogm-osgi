@@ -2,11 +2,14 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
+    <!--
     <profiles>
         <profile>
             <id>gitlab-build</id>
             <pluginRepositories>
+                -->
                 <!-- POM Utils - custom build dependency, hosted at Gitlab maven registry -->
+                <!--
                 <pluginRepository>
                     <id>gitlab-maven</id>
                     <url>https://gitlab.com/api/v4/projects/18580785/packages/maven</url>
@@ -20,9 +23,24 @@
             </pluginRepositories>
         </profile>
     </profiles>
+    -->
+
+    <profiles>
+        <profile>
+            <id>github-build</id>
+
+            <!-- TODO: pluginRepositories -->
+            <!--
+            <pluginRepositories>
+            </pluginRepositories>
+            -->
+
+        </profile>
+    </profiles>
+
 
     <activeProfiles>
-        <activeProfile>gitlab-build</activeProfile>
+        <activeProfile>github-build</activeProfile>
     </activeProfiles>
 
 </settings>
