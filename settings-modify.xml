@@ -5,6 +5,7 @@
     <servers>
         <server>
             <id>github-maven</id>
+            <!--
             <configuration>
                 <httpHeaders>
                     <property>
@@ -13,6 +14,12 @@
                     </property>
                 </httpHeaders>
             </configuration>
+            -->
+            <!--
+            <username>${env.GITHUB_USERNAME}</username>
+            -->
+            <username>gurkerl83</username>
+            <password>${env.GITHUB_TOKEN}</password>
         </server>
     </servers>
 
@@ -46,10 +53,12 @@
                 <!-- POM Utils - custom build dependency, hosted at GitHub maven registry -->
                 <pluginRepository>
                     <id>github-maven</id>
-                    <url>https://maven.pkg.github.com/project-millipede</url>
                     <!--
-                    <url>https://maven.pkg.github.com/project-millipede/pomutils-maven-plugin-distribution</url>
+                    <url>https://maven.pkg.github.com/project-millipede</url>
                     -->
+
+                    <url>https://maven.pkg.github.com/project-millipede/pomutils-maven-plugin-distribution</url>
+
                     <releases>
                         <enabled>true</enabled>
                     </releases>
