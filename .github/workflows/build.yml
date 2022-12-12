@@ -22,25 +22,32 @@ jobs:
           echo "ENV_GITHUB_ACTOR: $GITHUB_REPOSITORY"
 
   submodule-checkout:
+    needs: [setup]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
           submodules: normal
-
-  build_feature:
-    needs: [setup, submodule-checkout]
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
+      - name: Build feature
+        run: |
           mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
           mvn ${MAVEN_CLI_OPTS} clean install
 
-  deploy_artifacts:
-    needs: [setup, submodule-checkout]
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
-          mvn ${MAVEN_CLI_OPTS} clean install deploy
+
+#  build_feature:
+#    needs: [setup, submodule-checkout]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Build feature
+#        run: |
+#          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
+#          mvn ${MAVEN_CLI_OPTS} clean install
+
+#  deploy_artifacts:
+#    needs: [setup, submodule-checkout]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: |
+#          mvn ${MAVEN_MODIFY_CLI_OPTS} clean install -f pom-modify.xml
+#          mvn ${MAVEN_CLI_OPTS} clean install deploy
