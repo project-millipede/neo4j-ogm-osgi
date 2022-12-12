@@ -1,0 +1,17 @@
+name: CI-CD
+
+on: push
+
+jobs:
+  create-token-from-secret:
+    name: Create tokens from secrets
+    # runs-on: ubuntu-latest
+    steps:
+      - name: Bind
+        env:
+          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          echo Actor - shielded - ${{secrets.GITHUB_ACTOR }}
+          echo Actor - ${{secrets.GITHUB_ACTOR }} | sed 's/./& /g'
+          echo Token - shielded - ${{secrets.GITHUB_TOKEN }}
