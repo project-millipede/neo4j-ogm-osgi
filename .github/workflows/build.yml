@@ -26,7 +26,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    image: maven:3.6.3-jdk-11
+    container: maven:3.6.3-jdk-11
+
     env:
       JAVA_VERSION: '11'
 
