@@ -24,6 +24,9 @@ jobs:
   submodule-checkout:
     needs: [setup]
     runs-on: ubuntu-latest
+
+    image: maven:3.6.3-jdk-11
+
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
