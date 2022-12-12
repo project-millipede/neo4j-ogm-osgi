@@ -14,4 +14,9 @@ jobs:
         run: |
           echo "GITHUB_CONTEXT: ${GITHUB_CONTEXT}"
           echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
-          echo "GITHUB_TOKEN - shielded: ${{secrets.GITHUB_TOKEN }}"
+          echo "GITHUB_TOKEN - shielded: ${secrets.GITHUB_TOKEN}"
+
+      - name: Debug
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo $GITHUB_CONTEXT | jq
