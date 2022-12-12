@@ -5,7 +5,7 @@ on: push
 jobs:
   create-token-from-secret:
     name: Create tokens from secrets
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Bind
         env:
